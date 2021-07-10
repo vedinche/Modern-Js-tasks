@@ -2,24 +2,38 @@
 //будут в верхнем регистре. Использовать for или while.
 
 let str = 'i am in the easycode';
-let res = '';
+let newStr = '';
 let strArray = str.split(' ');
 
 for (let i = 0; i < strArray.length; i++) {
-	strArray[i] = strArray[i].slice(0, 1).toUpperCase() + strArray[i].slice(1);
-	res = strArray.join(' ');
+  strArray[i] = strArray[i].slice(0, 1).toUpperCase() + strArray[i].slice(1);
+  newStr = strArray.join(' ');
+}
+
+for (let i = 0; i < str.length; i++) {
+  if (str[i - 1] === ' ' || i === 0) {
+    newStr += str[i].toUpperCase();
+  } else {
+    newStr += str[i];
+  }
+}
+
+for (let i = 0; i < str.length; i++) {
+  str[i - 1] === ' ' || i === 0
+    ? (newStr += str[i].toUpperCase())
+    : (newStr += str[i]);
 }
 
 console.log(res);
 
-//TODO: Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш 
+//TODO: Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш
 //(то есть последняя буква становится первой, предпоследняя - второй итд).
 
 let str = 'tseb eht ma i';
 let res = '';
 
-for (let i = str.length -1; i >= 0; i--) {
-	res += str[i];
+for (let i = str.length - 1; i >= 0; i--) {
+  res += str[i];
 }
 
 console.log(res);
@@ -27,8 +41,6 @@ console.log(res);
 // let str = 'tseb eht ma i';
 
 // let res = '';
-
-
 
 // for(let i = str.length; i > 0 ; i--) {
 
@@ -41,7 +53,7 @@ console.log(res);
 let result = 1;
 
 for (let i = 1; i <= 10; i++) {
-	result *= i;
+  result *= i;
 }
 
 console.log(result);
@@ -54,16 +66,14 @@ let res = '';
 let strArray = str.split(' ');
 
 for (let i = 0; i < strArray.length; i++) {
-	strArray[i] = strArray[i].slice(0, 1).toUpperCase() + strArray[i].slice(1);
-	console.log(strArray[i]);
-	res = strArray.join('');
+  strArray[i] = strArray[i].slice(0, 1).toUpperCase() + strArray[i].slice(1);
+  console.log(strArray[i]);
+  res = strArray.join('');
 }
-
 
 console.log(res);
 
-
-//TODO: Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль. 
+//TODO: Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль.
 //Массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] Использовать for of.
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -71,9 +81,9 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 let res = [];
 
 for (key of arr) {
-	if (key % 2 === 1) {
-		res.push(key);
-	}
+  if (key % 2 === 1) {
+    res.push(key);
+  }
 }
 
 console.log(res);
@@ -90,27 +100,26 @@ console.log(res);
 // let list = {
 
 // 	name: ‘denis’,
-	
+
 // 	work: ‘easycode’,
-	
+
 // 	age: 29
-	
+
 // 	}
-	// 	Перебрать объект и если значение в свойстве это строка то переписать ее всю в верхнем регистре. Использовать for in.
+// 	Перебрать объект и если значение в свойстве это строка то переписать ее всю в верхнем регистре. Использовать for in.
 
-	let list = {
+let list = {
+  name: 'denis',
 
-		name: 'denis',
-		
-		work: 'easycode',
-		
-		age: 29,
-	};
-	
-	for (key in list) {
-		if (typeof list[key] === 'string') {
-			list[key] = list[key].toUpperCase();
-		}
-	}
-	
-	console.log(list);
+  work: 'easycode',
+
+  age: 29,
+};
+
+for (key in list) {
+  if (typeof list[key] === 'string') {
+    list[key] = list[key].toUpperCase();
+  }
+}
+
+console.log(list);
