@@ -2,17 +2,19 @@
 // количество чисел и возвращать их произведение, если аргументов нет, вернуть 0
 
 function multiply() {
-  let result = 1;
+  let res = 1;
 
-  if (arguments.length === 0) return 0;
+  if (!arguments) return 0;
 
   for (let i = 0; i < arguments.length; i++) {
-    result *= arguments[i];
+    if (!isNaN(arguments[i]) && arguments[i] != '') {
+      res *= arguments[i];
+    }
   }
-  return result;
+  return res;
 }
 
-console.log(multiply());
+console.log(multiply(2, 4, 'sdsd', '', 5));
 
 //Создать ф-цию, которая принимает строку и возвращает строку перевёртыш
 
@@ -50,12 +52,16 @@ function getCodeStringFromText(str) {
 
 console.log(getCodeStringFromText(undefined));
 
-//Создать ф-цию угадай число. Она пинимает число 0-10(сделать проверку на ><)
-// Если число не соответствует условию вернуть ошибку return new Error('Please provide number in range 0-10')
-// Если не число ошибка new Error('Please provide a valid number');
-// Далее ф-ция генерирует рандомное число от 1-10 и сравнивает с заданным числом,
-// если они совпали, возвращает строку 'You win!', если нет: 'You are lose, your number is 8, the randon number is 5'
-// Если переданно число в виде строки преобразовать к числу
+/**
+ * 
+ * @param {Создать ф-цию угадай число. Она пинимает число 0-10(сделать проверку на ><)
+Если число не соответствует условию вернуть ошибку return new Error('Please provide number in range 0-10')
+Если не число ошибка new Error('Please provide a valid number');
+Далее ф-ция генерирует рандомное число от 1-10 и сравнивает с заданным числом,
+если они совпали, возвращает строку 'You win!', если нет: 'You are lose, your number is 8, the randon number is 5'
+Если переданно число в виде строки преобразовать к числу} num 
+ * @returns 
+ */
 
 function guessTheNumber(num) {
   let randomNum = Math.floor(Math.random(num) * 10);
